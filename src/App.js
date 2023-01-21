@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion'
  
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import Page2 from './pages/Page2'
+import Create from './pages/Create'
 
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() {
          mode='wait'>
            <Routes>
              <Route path="/" exact element={<Home />} />
-             <Route path="/page2" exact element={<Page2 />} />
+             <Route path="/create" exact element={<Create />} />
            </Routes>
         </AnimatePresence>
       </Suspense>

@@ -1,3 +1,4 @@
+import { wrap } from "framer-motion";
 import { useEffect, useState } from "react"
 
 // import Logo from "../public/logo-transparent.png";
@@ -18,11 +19,16 @@ const links = [
         priority: false
     },
     {
-        name: "Page 2",
-        link: "/page2",
-        id: "page2",
+        name: "Create",
+        link: "/create",
+        id: "create",
         priority: false
     },
+    {
+        name: "Test",
+        link: "/test",
+        id: "test"
+    }
 
 ]
 
@@ -46,8 +52,6 @@ const Navbar = () => {
        setLoggedIn(!loggedIn)
    }
 
-   
- 
    return (
     //{pathname ? opacity:0 : opacity:1}
        <header className="border-[#130611] border-solid border-2 flex flex-col justify-center bg-[#130611] z-[99999999] min-h-[7vh] py-2 lg:py-4 shadow-xl">

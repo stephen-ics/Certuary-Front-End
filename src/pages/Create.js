@@ -191,8 +191,8 @@ const Create = () => {
       <div className='w-full flex flex-col items-center justify-center'>
         <div ref={ref} className=''></div>
         {loading && <Loading type='tail_spin' width={600} height={500} fill='#f44242' className='' />}
-        {showImage && <img src={`https://cf-ipfs.com/ipfs/${CID}`} ref={ref} className='certificate-lg'></img>}
-        {showImage &&         
+        {CID && <img src={`https://cf-ipfs.com/ipfs/${CID}`} ref={ref} className='certificate-lg'></img>}
+        {CID &&         
           <input
             type="submit"
             className="rounded-xl p-4 text-white bg-zinc-800 active:bg-zinc-600 transition-all duration-75 font-bold cursor-pointer px-36 py-8 my-20"

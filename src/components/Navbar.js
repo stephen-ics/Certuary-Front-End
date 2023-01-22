@@ -1,6 +1,7 @@
 import { wrap } from "framer-motion";
 import { useEffect, useState } from "react"
 
+
 // import Logo from "../public/logo-transparent.png";
  
 import { GoThreeBars } from "react-icons/go";
@@ -87,7 +88,7 @@ const Navbar = () => {
                             
                             <Link to='/'>
                                 <button
-                                    className="text-orange-900 hover:bg-orange-600 hover:text-orange-300 text-center border border-solid border-orange-900 mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded duration-300 transition-colors"
+                                    className="bg-white text-black hover:bg-black hover:text-white w-32 font-bold text-center border-2 border-solid border-white mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded-full duration-300 transition-colors"
                                     data-test-id={`navbar-logout`}
                                     onClick={() => handleClick()}
                                 >
@@ -97,13 +98,13 @@ const Navbar = () => {
                         </div>
   
                     ) : (
-                        <Link to='/login'>
+                        <Link to='/'>
                             <button
-                                className="text-orange-900 hover:bg-orange-600 hover:text-orange-300 text-center border border-solid border-orange-900 mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded duration-300 transition-colors"
+                                className=" bg-white text-black hover:bg-black hover:text-white w-32 font-bold text-center border-2 border-solid border-white mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded-full duration-300 transition-colors"
                                 data-test-id={`navbar-login`}
                                 onClick={(e) => handleClick()}
                             >
-                                Log in
+                                Login
                             </button>
                         </Link>
                     )}

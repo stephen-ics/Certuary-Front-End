@@ -8,11 +8,12 @@ import Create from './pages/Create'
 
 import './App.css';
 
+
 function App() {
   return (
     <div className="App">
     <BrowserRouter>
-      <Suspense fallback={<div>Page Loading...</div>}>
+        <Suspense fallback={<div>Page Loading...</div>}>
         <Navbar />
         <AnimatePresence
          mode='wait'>
@@ -21,7 +22,7 @@ function App() {
              <Route path="/create" exact element={<Create />} />
            </Routes>
         </AnimatePresence>
-      </Suspense>
+        </Suspense>
     </BrowserRouter>
   </div>
   );

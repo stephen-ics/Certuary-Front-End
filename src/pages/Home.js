@@ -1,6 +1,8 @@
 import React from 'react'
 import HeroPage from '../photos/HeroPage.png'
 import './page-styles/Home.css'
+import Typewriter from 'typewriter-effect'
+import { Link } from 'react-router-dom'
 
 import { motion } from 'framer-motion';
 
@@ -13,7 +15,8 @@ const Home = () => {
       y: 0,
       opacity: 1,
       transition: {
-        staggerChildren: 0.75,
+        staggerChildren: 0.5,
+        
       },
     },
     exit: {
@@ -46,7 +49,7 @@ const Home = () => {
   const textSide = {
     hidden: {
         x: '-5vh',
-        opacity: 0,
+        opacity: 1,
     },
     visible: { 
         x: 0,
@@ -87,16 +90,39 @@ const Home = () => {
     exit='exit'>
       <div className='flex justify-evenly items-left h-screen'>
         <div className='flex flex-col'>
-          <motion.h1 variants={textUp} className='text-8xl text-black mt-48'>Title</motion.h1>
-          <motion.h1 variants={textUp} className='text-5xl text-black mt-5'>Description</motion.h1>
-          <motion.button 
-          whileHover={{scale:1.1}}
-          whileTap={{scale:0.9}}
-          variants={textSide}
-          className='bg-black px-16 py-6 rounded-3xl text-7xl text-white mt-10'>Get Started</motion.button>
+          <motion.div className='flex' variants={textUp}>
+          <motion.h1 className='text-8xl mt-40 font-bold text-yellow-700'>Certuary</motion.h1>
+          <motion.h1 className='text-7xl text-black mt-48 ml-8'>can help you</motion.h1>
+          </motion.div>
+            <motion.div className='text-7xl mt-5 text-pink-400'>
+            <Typewriter
+                  options={{
+                    strings:[],
+                    autoStart: true,
+                    loop: true,
+                    delay: 100,
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .pauseFor(2500)
+                      .typeString("Design")
+                      .deleteAll()
+                      .typeString("Verify")
+                  }}
+                />
+              </motion.div>
+            <motion.h1 variants={textUp} className='text-7xl text-blqack mt-5'>Certificates</motion.h1>
+            <Link to='/create'>
+              <motion.button 
+                whileHover={{scale:1.1}}
+                whileTap={{scale:0.9}}
+                variants={textUp}
+                className='bg-black px-12 py-6 rounded-3xl text-6xl text-white mt-36'>Get Started
+              </motion.button>
+            </Link>
         </div>
         <div>
-          <motion.img variants={textLeft} className='home-image mt-20' src={HeroPage} />
+          <motion.img variants={textLeft} className='certificate mt-36' src={HeroPage} />
         </div>
       </div>
     </motion.div>

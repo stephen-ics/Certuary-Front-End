@@ -15,6 +15,8 @@ const Create = () => {
   const [companyName, setCompanyName] = useState(null);
   const [organizerName, setOrganizerName] = useState(null);
   const [organizerRole, setOrganizerRole] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [showImage, setShowImage] = useState(true);
 
   const CID = ""
 
@@ -65,6 +67,9 @@ const Create = () => {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(certificate)
+    }).then(function(response){
+      return response.json
+      CID = response.json
     })
   }
 
@@ -90,8 +95,6 @@ const Create = () => {
         });
     }, []);
 
-    const [loading, setLoading] = useState(false);
-    const [showImage, setShowImage] = useState(false);
 
 
   

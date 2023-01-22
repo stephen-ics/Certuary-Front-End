@@ -95,7 +95,7 @@ const Navbar = () => {
                </div>
  
                <div className={`${showDropdown ? "flex" : "hidden"} lg:flex flex-col lg:flex-row lg:ml-auto mt-3 lg:mt-0`} data-test-id="navbar">
-                    {loggedIn === true ? (
+                   
 
                         <div>
                             {links.map(({ name, link, priority, id }) => 
@@ -103,29 +103,10 @@ const Navbar = () => {
                                     {name}
                                 </Link>
                             )}
-                            
-                            <Link to='/'>
-                                <button
-                                    className="bg-yellow-700 text-white hover:bg-yellow-900 hover:text-white w-32 font-bold text-center border-2 border-solid border-yellow-600 mt-1 lg:mt-0 lg:ml-1 px-4 py-2 lg:px-4 lg:mx-2 rounded-2xl duration-300 transition-colors text-2xl"
-                                    data-test-id={`navbar-logout`}
-                                    onClick={() => handleClick()}
-                                >
-                                    Log out
-                                </button>
-                            </Link>
+
                         </div>
   
-                    ) : (
-                        <Link to='/'>
-                            <button
-                                className=" bg-yellow-700 text-white hover:bg-yellow-900 hover:text-white w-32 font-bold text-center px-4 py-2 border-2 border-solid border-yellow-600 mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded-2xl duration-300 transition-colors text-2xl"
-                                data-test-id={`navbar-login`}
-                                onClick={(e) => handleClick()}
-                            >
-                                Login
-                            </button>
-                        </Link>
-                    )}
+         
                </div>
                
            </div>

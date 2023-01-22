@@ -1,5 +1,6 @@
 import React from 'react'
-import Checkmark from '../photos/Checkmark.png'
+import CancelButton from '../photos/CancelButton.png'
+import Cancel from '../photos/Cancel.png'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
@@ -30,8 +31,8 @@ const Verified = () => {
     initial="hidden"
     animate="visible"
     exit="exit">
-        <img src={Checkmark} className='w-96' />
-        <h1 className='font-bold text-6xl text-center w-2/3'>This certificate has been verified by Certuary using Estuary.</h1>
+        <img src={Cancel} className='w-96' />
+        <h1 className='font-bold text-6xl text-center w-2/3'>This certificate has failed to be verified.</h1>
         <Link to="/">
             <button className="bg-white text-black hover:bg-yellow-900 hover:text-white font-bold text-center border-2 border-solid border-yellow-600 px-16 m-10 py-6 rounded-2xl duration-300 transition-colors text-2xl" data-test-id={`navbar-logout`}> Back to Home</button>
         </Link>

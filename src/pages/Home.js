@@ -15,7 +15,7 @@ const Home = () => {
       y: 0,
       opacity: 1,
       transition: {
-        staggerChildren: 0.5,
+        staggerChildren: 0.25,
         
       },
     },
@@ -83,7 +83,7 @@ const Home = () => {
   };
 
   return (
-    <motion.div className='bg-gradient-to-l from-yellow-600 to-white h-screen bg-no-repeat object-cover content-center'
+    <motion.div className='h-screen bg-no-repeat object-cover content-center'
     variants={container}
     initial='hidden'
     animate='visible'
@@ -91,7 +91,7 @@ const Home = () => {
       <div className='flex justify-evenly items-left h-screen'>
         <div className='flex flex-col'>
           <motion.div className='flex' variants={textUp}>
-          <motion.h1 className='text-8xl mt-40 font-bold text-yellow-700'>Certuary</motion.h1>
+          <motion.h1 className='text-7xl font-black mt-48 text-yellow-700'>Certuary</motion.h1>
           <motion.h1 className='text-7xl text-black mt-48 ml-8'>can help you</motion.h1>
           </motion.div>
             <motion.div className='text-7xl mt-5 text-pink-400'>
@@ -117,7 +117,7 @@ const Home = () => {
                 whileHover={{scale:1.1}}
                 whileTap={{scale:0.9}}
                 variants={textUp}
-                className='bg-black px-12 py-6 rounded-3xl text-6xl text-white mt-36'>Get Started
+                className='bg-white text-black hover:bg-yellow-900 hover:text-white font-bold text-6xl text-center border-2 border-solid border-yellow-600 px-16 mt-12 py-6 rounded-2xl duration-300 transition-colors text-2xl" data-test-id={`navbar-logout`}'>Get Started
               </motion.button>
             </Link>
         </div>

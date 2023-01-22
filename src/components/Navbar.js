@@ -17,18 +17,30 @@ const links = [
         name: "Home",
         link: "/",
         id: "home",
-        priority: false
+        priority: false,
+        transparant: true,
     },
     {
         name: "Create",
         link: "/create",
         id: "create",
-        priority: false
+        priority: false,
+        transparant: true,
     },
     {
-        name: "Test",
-        link: "/test",
-        id: "test"
+        name: "Verified",
+        link: "/verified",
+        id: "verified",
+        priority: false,
+        transparant: true,
+    },
+    {
+        name: "Unverified",
+        link: "/unverified",
+        id: "unverified",
+        priority: false,
+        transparant: true,
+
     }
 
 ]
@@ -55,12 +67,12 @@ const Navbar = () => {
 
    return (
     //{pathname ? opacity:0 : opacity:1}
-       <header className="border-[#130611] border-solid border-2 flex flex-col justify-center bg-[#130611] z-[99999999] min-h-[7vh] py-2 lg:py-4 shadow-xl">
+       <header className="border-[#130611] border-transparent border-solid border-2 flex flex-col justify-center bg-[#130611] bg-opacity-0 z-[99999999] min-h-[7vh] py-2 lg:py-4">
            <div className="container px-4 mx-auto lg:flex lg:items-center m-30">
                <div className="flex justify-between items-center">
-                   <Link className="flex flex-row items-center gap-4 font-bold text-xl text-teal" to="/">
+                   <Link className="flex flex-row items-center gap-4 font-bold text-2xl text-teal" to="/">
                        {/* <img src="" alt="Logo" width={29} height={42} /> */}
-                       <h2 className="text-2xl text-white font-mono">UofTHacks X</h2>
+                       <h2 className="text-4xl text-black font-mono hover:text-yellow-900">UofTHacks X</h2>
                    </Link>
  
                    <button
@@ -81,14 +93,14 @@ const Navbar = () => {
 
                         <div>
                             {links.map(({ name, link, priority, id }) => 
-                                <Link key={name} className={`${priority ? "text-purple-900 hover:bg-purple-900 hover:text-white text-center border border-solid border-purple-900 mt-1 lg:mt-0 lg:ml-1" : "text-white hover:bg-gray-200/25 hover:text-red-200"} p-2 lg:px-4 lg:mx-2 rounded duration-300 transition-colors ${pathname === name && "font-bold"}`} to={link}>
+                                <Link key={name} className={`${priority ? "text-purple-900 hover:bg-purple-900 hover:text-white text-center border border-solid border-purple-900 mt-1 lg:mt-0 lg:ml-1" : "text-black text-2xl hover:bg-gray-200/25 hover:text-yellow-900"} p-2 lg:px-4 lg:mx-2 rounded duration-300 transition-colors ${pathname === name && "font-bold"}`} to={link}>
                                     {name}
                                 </Link>
                             )}
                             
                             <Link to='/'>
                                 <button
-                                    className="bg-white text-black hover:bg-black hover:text-white w-32 font-bold text-center border-2 border-solid border-white mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded-full duration-300 transition-colors"
+                                    className="bg-white text-black hover:bg-yellow-900 hover:text-white w-32 font-bold text-center border-2 border-solid border-yellow-600 mt-1 lg:mt-0 lg:ml-1 px-4 py-2 lg:px-4 lg:mx-2 rounded-full duration-300 transition-colors text-2xl"
                                     data-test-id={`navbar-logout`}
                                     onClick={() => handleClick()}
                                 >
@@ -100,7 +112,7 @@ const Navbar = () => {
                     ) : (
                         <Link to='/'>
                             <button
-                                className=" bg-white text-black hover:bg-black hover:text-white w-32 font-bold text-center border-2 border-solid border-white mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded-full duration-300 transition-colors"
+                                className=" bg-white text-black hover:bg-yellow-900 hover:text-white w-32 font-bold text-center px-4 py-2 border-2 border-solid border-yellow-600 mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded-full duration-300 transition-colors text-2xl"
                                 data-test-id={`navbar-login`}
                                 onClick={(e) => handleClick()}
                             >

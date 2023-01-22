@@ -46,15 +46,14 @@ const Create = () => {
           setCertificateData(data);
         });
     }, []);
-
   return (
     <motion.div className='' variants={container} 
       initial='hidden' 
       animate='visible' 
       exit='exit'>
-      <div className='flex justify-evenly bg-gradient-to-l from-yellow-600 to-white h-screen'>
+      <div className='flex justify-evenly h-screen'>
         <div className='flex justify-center items-center flex-col'>
-          <h1 className='text-6xl font-bold mb-8'>Certificate Template</h1>
+          <h1 className='text-6xl font-bold mb-8'>Certificate Certificate</h1>
           <img src={CertuaryCertopus} className='certificate mb-24'></img>
         </div>
         <div className='flex flex-col justify-evenly h-full'>

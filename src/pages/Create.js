@@ -16,6 +16,8 @@ const Create = () => {
   const [organizerName, setOrganizerName] = useState(null);
   const [organizerRole, setOrganizerRole] = useState(null);
 
+  const CID = ""
+
 
   const container = {
     hidden: {

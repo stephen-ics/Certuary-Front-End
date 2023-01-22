@@ -45,21 +45,21 @@ const Create = () => {
 
     const name = e.target.presentedTo.value
     const description = e.target.description.value
-    const company_name = e.target.certificateOrganization.value
-    const organizer_name = e.target.organizerName.value
-    const organizer_role = e.target.organizerRole.value
+    const company = e.target.certificateOrganization.value
+    const oname = e.target.organizerName.value
+    const role = e.target.organizerRole.value
 
-    const certificate = {name, description, company_name, organizer_name, organizer_role};
+    const certificate = {name, description, company, oname, role};
 
     setName(name);
     setDescription(description);
-    setCompanyName(company_name);
-    setOrganizerName(organizer_name);
-    setOrganizerRole(organizer_role);
+    setCompanyName(company);
+    setOrganizerName(oname);
+    setOrganizerRole(role);
 
     setLoading(true);
     
-    fetch('http://localhost:3002/CompletedSection', {
+    fetch('http://127.0.0.1:5000/createCertificate', {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(certificate)

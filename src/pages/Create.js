@@ -34,8 +34,25 @@ const Create = () => {
   };
 
   const handleSubmit = async(e) => {
-   
+    e.preventDefault();
+    ref.current?.scrollIntoView({behavior: 'smooth'});
+
+    const name = e.target.presentedTo.value
+    const description = e.target.description.value
+    const company_name = e.target.certificateOrganization.value
+    const organizer_name = e.target.organizerName.value
+    const organizer_role = e.target.organizerRole.value
+
+    const certificate = {name, description, company_name, organizer_name, organizer_role};
+    
+    fetch('http://localhost:3002/CompletedSection', {
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(certificate)
+    })
   }
+
+  const ref = useRef(null);
 
   useEffect(() => {
     fetch('http://localhost:3000/')
@@ -46,6 +63,10 @@ const Create = () => {
           setCertificateData(data);
         });
     }, []);
+
+
+  
+
   return (
     <motion.div className='' variants={container} 
       initial='hidden' 
@@ -60,6 +81,7 @@ const Create = () => {
           <form
               className="flex flex-col gap-2 self-center mt-4 w-full p-16 pt-4 xl:w-5/6items-center justify-center"
               onSubmit={handleSubmit}
+              
           >
               <fieldset className="flex flex-col">
                   <label className="label mb-2">
@@ -89,7 +111,7 @@ const Create = () => {
                   <label className="label mb-2">
                       <span className="label-text text-2xl font-bold">Description</span>
                   </label>
-                  <textarea required rows="5" cols="60" name="text" placeholder="Enter text" className="border-2 border-black input input-bordered transition-all duration-150 py-4 px-16 rounded-xl placeholder:text-lg placeholder:text-ellipsis mb-8 h-32"></textarea>
+                  <textarea required rows="5" cols="60" name="description" placeholder="Enter text" className="border-2 border-black input input-bordered transition-all duration-150 py-4 px-16 rounded-xl placeholder:text-lg placeholder:text-ellipsis mb-8 h-32"></textarea>
               
               </fieldset>
               <fieldset className="flex flex-col justify-between">
@@ -123,19 +145,25 @@ const Create = () => {
                   </div>
               </fieldset>
 
-              
+             
               <input
                 type="submit"
                 className="rounded-xl p-4 text-white bg-zinc-800 active:bg-zinc-600 transition-all duration-75 font-bold cursor-pointer px-36 py-8"
                 value="Submit"
+                
               />
+      
           </form>
         </div>
       </div>
-      <div className='w-full flex justify-center'>
+      <div className='w-full flex flex-col items-center justify-center mt-96'>
+        <img ref={ref} src={CertuaryCertopus} className='certificate-lg'></img>
 
-
-
+        <input
+            type="submit"
+            className="rounded-xl p-4 text-white bg-zinc-800 active:bg-zinc-600 transition-all duration-75 font-bold cursor-pointer px-36 py-8 my-20"
+            value="Submit"
+            />
       </div>
     </motion.div>
   )

@@ -6,24 +6,26 @@ import { motion } from 'framer-motion'
 const Verified = () => {
     const container = {
         hidden: {
-          opacity: 0,
+            y: '-5vh',
+            opacity: 0,
         },
         visible: {
           y: 0,
           opacity: 1,
           transition: {
-            staggerChildren: 0.25,
-            
+            staggerChildren: 0.35,
+            duration: 0.5,
           },
         },
         exit: {
-            y: '-10vh',
-            opacity: 0,
-            transition: {
-              duration: 0.25,
-            }
+          y: '-10vh',
+          opacity: 0,
+          transition: {
+            duration: 2.5,
+          }
         },
       };
+    
   return (
     <motion.div className='bg-gradient-to-l h-screen flex justify-center items-center flex-col'
     variants={container}
@@ -33,9 +35,9 @@ const Verified = () => {
         <img src={Checkmark} className='w-96' />
         <h1 className='font-bold text-6xl text-center w-2/3'>This certificate has been verified by Certuary using Estuary.</h1>
         <Link to="/">
-            <button className="bg-white text-black hover:bg-yellow-900 hover:text-white font-bold text-center border-2 border-solid border-yellow-600 px-16 m-10 py-6 rounded-2xl duration-300 transition-colors text-2xl" data-test-id={`navbar-logout`}> Back to Home</button>
+            <button className="bg-yellow-700 text-white hover:bg-yellow-900 hover:text-white font-bold text-center border-2 border-solid border-yellow-600 px-16 m-10 py-6 rounded-2xl duration-300 transition-colors text-2xl" data-test-id={`navbar-logout`}> Back to Home</button>
         </Link>
-        <hi className='text-3xl text-center w-1/2'> As we are partnered with Estuary, anything that is sent through can by verified with Estuary</hi>
+        <hi className='text-3xl text-center w-1/2 mb-40'> As we are partnered with Estuary, anything that is sent through can by verified with Estuary</hi>
     </motion.div>
   )
 }

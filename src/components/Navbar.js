@@ -41,6 +41,12 @@ const links = [
         priority: false,
         transparant: true,
 
+    },
+    {
+        name: "Verification",
+        link: "/verification",
+        priority: false,
+        transparent: true,
     }
 
 ]
@@ -100,7 +106,7 @@ const Navbar = () => {
                             
                             <Link to='/'>
                                 <button
-                                    className="bg-white text-black hover:bg-yellow-900 hover:text-white w-32 font-bold text-center border-2 border-solid border-yellow-600 mt-1 lg:mt-0 lg:ml-1 px-4 py-2 lg:px-4 lg:mx-2 rounded-full duration-300 transition-colors text-2xl"
+                                    className="bg-yellow-700 text-white hover:bg-yellow-900 hover:text-white w-32 font-bold text-center border-2 border-solid border-yellow-600 mt-1 lg:mt-0 lg:ml-1 px-4 py-2 lg:px-4 lg:mx-2 rounded-2xl duration-300 transition-colors text-2xl"
                                     data-test-id={`navbar-logout`}
                                     onClick={() => handleClick()}
                                 >
@@ -112,7 +118,7 @@ const Navbar = () => {
                     ) : (
                         <Link to='/'>
                             <button
-                                className=" bg-white text-black hover:bg-yellow-900 hover:text-white w-32 font-bold text-center px-4 py-2 border-2 border-solid border-yellow-600 mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded-full duration-300 transition-colors text-2xl"
+                                className=" bg-yellow-700 text-white hover:bg-yellow-900 hover:text-white w-32 font-bold text-center px-4 py-2 border-2 border-solid border-yellow-600 mt-1 lg:mt-0 lg:ml-1 p-2 lg:px-4 lg:mx-2 rounded-2xl duration-300 transition-colors text-2xl"
                                 data-test-id={`navbar-login`}
                                 onClick={(e) => handleClick()}
                             >

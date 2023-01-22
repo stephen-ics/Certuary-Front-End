@@ -1,4 +1,7 @@
 .certificate {
-    width: 50rem;
-    
+    width: 40rem;
+}
+
+.certificate-lg {
+    width: 70rem;
 }

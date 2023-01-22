@@ -15,7 +15,7 @@ const Home = () => {
       y: 0,
       opacity: 1,
       transition: {
-        staggerChildren: 0.25,
+        staggerChildren: 0.5,
         
       },
     },
@@ -37,7 +37,7 @@ const Home = () => {
         y: 0,
         opacity: 1,
         transition: {
-            duration: 2,
+            duration: 1.5,
             ease: [0.6, 0.01, 0.05, 0.95],
         }
     },
@@ -73,7 +73,7 @@ const Home = () => {
         x: 0,
         opacity: 1,
         transition: {
-            duration: 2,
+            duration: 1.5,
             ease: [0.6, 0.01, 0.05, 0.95],
         }
     },
@@ -101,6 +101,7 @@ const Home = () => {
                     autoStart: true,
                     loop: true,
                     delay: 100,
+                    
                   }}
                   onInit={(typewriter) => {
                     typewriter
@@ -117,7 +118,7 @@ const Home = () => {
                 whileHover={{scale:1.1}}
                 whileTap={{scale:0.9}}
                 variants={textUp}
-                className='bg-white text-black hover:bg-yellow-900 hover:text-white font-bold text-6xl text-center border-2 border-solid border-yellow-600 px-16 mt-12 py-6 rounded-2xl duration-300 transition-colors text-2xl" data-test-id={`navbar-logout`}'>Get Started
+                className='bg-yellow-700 text-white hover:bg-yellow-900 hover:text-white font-bold text-6xl text-center border-2 border-solid border-yellow-600 px-16 mt-12 py-6 rounded-2xl duration-300 transition-colors text-2xl" data-test-id={`navbar-logout`}'>Get Started
               </motion.button>
             </Link>
         </div>

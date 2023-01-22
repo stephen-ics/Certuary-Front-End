@@ -6,9 +6,15 @@ import { motion } from 'framer-motion'
 import './page-styles/Create.css'
 import { useState, useEffect, useRef } from 'react'
 import { CSSTransition } from 'react-transition-group';
+import Loading from 'react-loading-components';
 
 const Create = () => {
   const [certificateData, setCertificateData] = useState(null);
+  const [name, setName] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [companyName, setCompanyName] = useState(null);
+  const [organizerName, setOrganizerName] = useState(null);
+  const [organizerRole, setOrganizerRole] = useState(null);
 
 
   const container = {
@@ -44,7 +50,25 @@ const Create = () => {
     const organizer_role = e.target.organizerRole.value
 
     const certificate = {name, description, company_name, organizer_name, organizer_role};
+
+    setName(name);
+    setDescription(description);
+    setCompanyName(company_name);
+    setOrganizerName(organizer_name);
+    setOrganizerRole(organizer_role);
+
+    setLoading(true);
     
+    fetch('http://localhost:3002/CompletedSection', {
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(certificate)
+    })
+  }
+
+  const handleSubmit2 = async(e) => {
+    const certificate = {name, description, companyName, organizerName, organizerRole};
+        
     fetch('http://localhost:3002/CompletedSection', {
       method: 'POST', 
       headers: { 'Content-Type': 'application/json' },
@@ -64,6 +88,9 @@ const Create = () => {
         });
     }, []);
 
+    const [loading, setLoading] = useState(false);
+    const [showImage, setShowImage] = useState(false);
+
 
   
 
@@ -74,7 +101,7 @@ const Create = () => {
       exit='exit'>
       <div className='flex justify-evenly h-screen'>
         <div className='flex justify-center items-center flex-col'>
-          <h1 className='text-6xl font-bold mb-8'>Certificate Certificate</h1>
+          <h1 className='text-6xl font-bold mb-8'>Create Certificate</h1>
           <img src={CertuaryCertopus} className='certificate mb-24'></img>
         </div>
         <div className='flex flex-col justify-evenly h-full'>
@@ -156,14 +183,19 @@ const Create = () => {
           </form>
         </div>
       </div>
-      <div className='w-full flex flex-col items-center justify-center mt-96'>
-        <img ref={ref} src={CertuaryCertopus} className='certificate-lg'></img>
-
-        <input
+      <div className='w-full flex flex-col items-center justify-center'>
+        <div ref={ref} className=''></div>
+        {loading && <Loading type='tail_spin' width={600} height={500} fill='#f44242' className='' />}
+        {showImage && <img src={CertuaryCertopus} ref={ref} className='certificate-lg'></img>}
+        {showImage &&         
+          <input
             type="submit"
             className="rounded-xl p-4 text-white bg-zinc-800 active:bg-zinc-600 transition-all duration-75 font-bold cursor-pointer px-36 py-8 my-20"
             value="Submit"
-            />
+            onClick={handleSubmit2}
+          />}
+
+
       </div>
     </motion.div>
   )

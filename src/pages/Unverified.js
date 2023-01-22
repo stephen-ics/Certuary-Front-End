@@ -4,7 +4,7 @@ import Cancel2 from '../photos/Cancel2.png'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-const Verified = () => {
+const Unverified = () => {
     const container = {
         hidden: {
             y: '-5vh',
@@ -43,4 +43,4 @@ const Verified = () => {
   )
 }
 
-export default Verified
+export default Unverified

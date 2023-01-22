@@ -7,13 +7,14 @@ import Home from './pages/Home'
 import Create from './pages/Create'
 import Verified from './pages/Verified'
 import Unverified from './pages/Unverified'
+import Verification from './pages/Verification'
 
 import './App.css';
 
 
 function App() {
   return (
-    <div className="App bg-gradient-to-l from-yellow-600 to-white">
+    <div className="App bg-white">
     <BrowserRouter>
         <Suspense fallback={<div>Page Loading...</div>}>
         <Navbar />
@@ -24,6 +25,7 @@ function App() {
              <Route path="/create" exact element={<Create />} />
              <Route path="/verified" exact element={<Verified />} />
              <Route path="/unverified" exact element={<Unverified />} />
+             <Route path="/verification" exact element={<Verification />} />
            </Routes>
         </AnimatePresence>
         </Suspense>

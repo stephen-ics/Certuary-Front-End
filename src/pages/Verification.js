@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import CertuaryCertopus from '../photos/CertuaryCertificate.png'
 import './page-styles/Verification.css'
+import Image from '../components/Image'
 
 const Verification = () => {
     const container = {
@@ -28,7 +29,8 @@ const Verification = () => {
           }
         },
       };
-    
+    let CID = window.localStorage.getItem('cid')
+    let name = window.localStorage.getItem('name')
   return (
     <motion.div className='flex justify-evenly items-start mt-20'
     variants={container}
@@ -38,12 +40,13 @@ const Verification = () => {
         <div className='mb-20'>
 
             <div className=''>
-                <img src={CertuaryCertopus} className='certificate-lg w-96'/>
+                <img src={
+                    `https://cf-ipfs.com/ipfs/${CID}`} className='certificate-lg w-96' />
             </div>
             <div className='flex flex-col rounded-2xl p-12 shadow-2xl'>
-                <h1 className='text-4xl font-bold text-center'>IgnitionHacks</h1>
-                <h1 className='text-3xl mt-12'>Issued to: Name</h1>
-                <h1 className='text-3xl mt-12'>'INSERT HASH'</h1>
+                <h1 className='text-4xl font-bold text-center'>Congratulations!</h1>
+                <h1 className='text-3xl mt-12'>Issued to: {name}</h1>
+                <h1 className='text-xl mt-12'>'{CID}'</h1>
                 <div className='flex justify-between'>
                     <div className=''>
                         <h1 className='text-3xl mt-12'>Issued on</h1>
@@ -54,7 +57,9 @@ const Verification = () => {
                         <h1 className='text-3xl mt-12'>Never</h1>
                     </div>
                 </div>
-                <h1 className='text-3xl mt-16'>See Certitude on IPFS</h1>
+                <a href={`https://cf-ipfs.com/ipfs/${CID}`} className='text-3xl mt-16 flex justify-center items-center text-blue-300'>See Certitude on IPFS </a>
+                <br/>
+
                 <Link to="/">
                     <button className="bg-yellow-700 text-white hover:bg-yellow-900 hover:text-white font-bold text-center border-2 border-solid border-yellow-600 px-16 mx-48 mt-12 py-6 rounded-2xl duration-300 transition-colors text-2xl" data-test-id={`navbar-logout`}> Back to Home</button>
                 </Link>

@@ -66,6 +66,11 @@ const Create = () => {
         }).then(function(response){
             response.text().then((response)=>{
                 setCID(response)
+                console.log(response)
+                window.localStorage.setItem('cid',response)
+                window.localStorage.setItem('name_person',name)
+
+
                 setShowImage(true);
 
             })
@@ -75,13 +80,7 @@ const Create = () => {
     }
 
     const handleSubmit2 = async(e) => {
-        const certificate = {name, description, companyName, organizerName, organizerRole};
 
-        fetch('http://localhost:3002/CompletedSection', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(certificate)
-        })
     }
 
     const ref = useRef(null);
@@ -107,7 +106,7 @@ const Create = () => {
                     exit='exit'>
             <div className='flex justify-evenly h-screen'>
                 <div className='flex justify-center items-center flex-col'>
-                    <h1 className='text-6xl font-bold mb-8'>Create Certificate {name}</h1>
+                    <h1 className='text-6xl font-bold mb-8'>Create Certificate </h1>
                     <img src={CertuaryCertopus} className='certificate mb-24'></img>
                 </div>
                 <div className='flex flex-col justify-evenly h-full'>
@@ -192,14 +191,18 @@ const Create = () => {
             <div className='w-full flex flex-col items-center justify-center'>
                 <div ref={ref} className=''></div>
                 {/*{loading && <Loading type='tail_spin' width={600} height={500} fill='#f44242' className='' />}*/}
-                {showImage && <img src={`https://cf-ipfs.com/ipfs/${CID}`} ref={ref} className='certificate-lg'></img>}
                 {showImage &&
+                    <img src={`https://cf-ipfs.com/ipfs/${CID}`} ref={ref} className='certificate-lg'></img>}
+                {showImage &&
+                    <Link to="/verification">
                     <input
                         type="submit"
                         className="rounded-xl p-4 text-white bg-zinc-800 active:bg-zinc-600 transition-all duration-75 font-bold cursor-pointer px-36 py-8 my-20"
                         value="Submit"
-                        onClick={handleSubmit2}
-                    />}
+                        onSubmit={handleSubmit2}/>
+                    </Link>
+                    }
+
 
 
             </div>

@@ -78,7 +78,7 @@ const Navbar = () => {
                <div className="flex justify-between items-center">
                    <Link className="flex flex-row items-center gap-4 font-bold text-2xl text-teal" to="/">
                        {/* <img src="" alt="Logo" width={29} height={42} /> */}
-                       <h2 className="text-4xl text-black font-mono hover:text-yellow-900">UofTHacks X</h2>
+                       <h2 className="text-4xl text-black font-mono hover:text-yellow-900">Certuary </h2>
                    </Link>
  
                    <button
